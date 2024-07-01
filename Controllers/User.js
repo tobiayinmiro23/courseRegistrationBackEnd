@@ -7,13 +7,14 @@ const SigninController=async(req,res)=>{
 
 const LoginController=async(req,res)=>{
     let reply=await Login(req)
-    let options = {
+     let oneweek= 4 * 24 * 3600 * 1000 
+     let options = {
         // maxAge: 1000 * 60 * 1, // expire after 1 minutes
-        maxAge:  120*60*60, // expire after 5 days
+        maxAge:  oneweek, // expire after 4 days
         httpOnly: true, // Cookie will not be exposed to client side code
         sameSite: "none", // If client and server origins are different
         secure: true // use with HTTPS only
-    }     
+     }  
     if((req.body.checked)  &&  reply.message.id) res.cookie( "sptoken", reply.message.token, options ).json(reply)
     else  res.json(reply)
 }
