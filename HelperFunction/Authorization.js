@@ -5,7 +5,7 @@ const verifyToken= async(id,token)=>{
         try{
             let userExists=await User.findById(id)
             if(userExists?.id){
-                let valid = jwt.verify(token, "tobi's secrete")
+                let valid = jwt.verify(token, process.env.SECRETEKEY)
                 if(valid===userExists.userName)return true
                  return 'unauthorised'
             }
