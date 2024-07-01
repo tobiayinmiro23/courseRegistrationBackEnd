@@ -6,7 +6,7 @@ const uri = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@tobi.
 
 const app=express()
 const corsOptions = {
-    origin:'http://localhost:3001',
+    origin:'https://school-portal-ml9i.onrender.com/',
     credentials: true
 };
 app.use(cors(corsOptions))
