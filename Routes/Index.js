@@ -4,7 +4,7 @@ const {SigninController,LoginController,ForgotPasswordController,UpdateProfilePi
 const {AddCourseController,GetAllCourseController,DeleteCourseController,AddMultipleCourseController} =require('../Controllers/Course')
 
 
-router.get('/','we are live !!!!!!1')
+router.get('/',(req,res)=>res.send('<h1>we are live !!!!!!</h1>'))
 router.post('/signin',SigninController)
 router.post('/login',LoginController)
 router.get('/rememberMe',RememberMeController)
