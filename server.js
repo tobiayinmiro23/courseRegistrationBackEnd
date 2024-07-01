@@ -2,7 +2,6 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const router= require('./Routes/Index')
-// const uri ='mongodb://127.0.0.1:27017/CourseRegistration'
 const uri = "mongodb+srv://tobi:Collinss23@tobi.z8plmj1.mongodb.net/CourseRegistration?retryWrites=true&w=majority";
 
 const app=express()
@@ -20,4 +19,4 @@ async function main() {
     console.log('successfully connectred to the database')
 }
 
-app.listen(3000,()=>main().catch((err) => console.log(err)))
+app.listen(process.env.PORT || 3000,()=>main().catch((err) => console.log(err)))
