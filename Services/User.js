@@ -111,8 +111,7 @@ const GetPhoto = async (req) => {
    const { userName } = req.body
    try {
       let userExists = await User.find({ userName })
-      if (userExists[0]._id) return Response(true, userExists[0].photoUrl)
-      else return Response(false, 'an error occured')
+      return Response(true, userExists[0].photoUrl)
    } catch (error) {
       return Response(false, error?.message || error)
    }
