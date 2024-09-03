@@ -27,10 +27,10 @@ const Signin = async (body) => {
 //    try{
 //       const reply=getCookie(req)
 //       if(reply===null)return Response(false,'cookie does not exist') 
-//       let userName = jwt.verify(reply, "tobi's secrete")
+//       let userName = jwt.verify(reply, process.env.SECRETEKEY)
 //        let userExists=await User.find({userName})
 //        if(userExists?.length){
-//               let token = jwt.sign(userExists[0].userName, "tobi's secrete")
+//               let token = jwt.sign(userExists[0].userName, process.env.SECRETEKEY)
 //               let data={
 //                  id:userExists[0].id,
 //                  token,
@@ -52,7 +52,7 @@ const Login = async (req) => {
       if (userExists?.length) {
          let verifyPassword = bcrypt.compareSync(password, userExists[0].password)
          if (verifyPassword) {
-            let token = jwt.sign(userExists[0].userName, "tobi's secrete")
+            let token = jwt.sign(userExists[0].userName, process.env.SECRETEKEY)
             let data = {
                id: userExists[0].id,
                token,
