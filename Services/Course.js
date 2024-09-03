@@ -5,8 +5,10 @@ const Response=require('../HelperFunction/Response')
 const addCourse=async (body,headers)=>{
     const {userid,token}=headers
     const {CourseCode,Semester,Nature}=body
+    console.log(userid,token)
      try{
             let reply= await verifyToken(userid,token)
+         console.log(reply)
         if(reply===true){
             // check if the course already exists before inserting a course
             const findCourse=await Course.find({LinkId:userid}).where({"data.CourseCode":CourseCode}).distinct('data.CourseCode')
@@ -25,6 +27,7 @@ const addCourse=async (body,headers)=>{
         }
             return Response(false,reply) 
      }catch(error){
+         console.log(error)
         if(error.name ==='ValidationError')return Response(false,error.message)  
         return Response(false,error?.message || error) 
      }
