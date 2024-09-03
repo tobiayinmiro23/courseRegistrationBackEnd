@@ -78,13 +78,13 @@ const addMultipleCourses=async (body,headers)=>{
 const getAllCourse=async (body)=>{
     const {userid,token}=body
     try{
-            // let reply=await verifyToken(userid,token)
-            // if(reply===true){
+            let reply=await verifyToken(userid,token)
+            if(reply===true){
                  const newCourse=await Course.find({LinkId:userid}).sort({"data.No":1})
                  if(newCourse.length > 0) return Response(true,newCourse)
                      return Response(false,'you have not yet registered any course')  
-            // }
-                // return  Response(false,reply)
+            }
+                return  Response(false,reply)
      }catch(error){
       return Response(false,error?.message || error)
      }
