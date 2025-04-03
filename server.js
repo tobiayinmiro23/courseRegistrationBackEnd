@@ -5,11 +5,13 @@ const router= require('./Routes/Index')
 const uri = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@tobi.z8plmj1.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`;
 
 const app=express()
-const corsOptions = {
-    origin:['https://school-portal-ml9i.onrender.com','https://tobiayinmiro23.github.io/portfolio/']
-    credentials: true
-};
-app.use(cors(corsOptions))
+// const corsOptions = {
+//     origin:['https://school-portal-ml9i.onrender.com','https://tobiayinmiro23.github.io/portfolio/']
+//     credentials: true
+// };
+// app.use(cors(corsOptions))
+var whitelist =['https://school-portal-ml9i.onrender.com','https://tobiayinmiro23.github.io/portfolio/'];
+app.use(cors({credentials: true, origin: whitelist }));
 app.use(express.json())
 app.use(router)
 
