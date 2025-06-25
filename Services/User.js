@@ -23,52 +23,28 @@ const Signin = async (body) => {
       return Response(false, error?.message || error)
    }
 }
-// const RememberMe= async(req)=>{
-//    try{
-//       const reply=getCookie(req)
-//       if(reply===null)return Response(false,'cookie does not exist') 
-//       let userName = jwt.verify(reply, process.env.SECRETEKEY)
-//        let userExists=await User.find({userName})
-//        if(userExists?.length){
-//               let token = jwt.sign(userExists[0].userName, process.env.SECRETEKEY)
-//               let data={
-//                  id:userExists[0].id,
-//                  token,
-//                  username:userExists[0].userName,
-//                  photoUrl:userExists[0].photoUrl,
-//                  matricNumber:userExists[0].matricNumber
-//               }
-//               return Response(true,data)          
-//        }
-//           return Response(false,'user does not exists')
-//    }catch(error){
-//       return Response(false,error?.message || error)
-//    }
-// }
+
 const Login = async (req) => {
    const { userName, password } = req.body
    try {
       let userExists = await User.find({ userName })
-      if (userExists?.length) {
-         let verifyPassword = bcrypt.compareSync(password, userExists[0].password)
-         if (verifyPassword) {
-            let token = jwt.sign(userExists[0].userName, process.env.SECRETEKEY)
-            let data = {
-               id: userExists[0].id,
-               token,
-               username: userExists[0].userName,
-               photoUrl: userExists[0].photoUrl,
-               matricNumber: userExists[0].matricNumber,
-            }
-            return Response(true, data)
-         }
-         return Response(false, 'incorrect password')
+      if (!userExists?.length) return Response(false, 'invalid credentials')
+      let verifyPassword = bcrypt.compareSync(password, userExists[0].password)
+      if (!verifyPassword) return Response(false, 'invalid credentials')
+      let token = jwt.sign(userExists[0].userName, "tobi's secrete")
+      let data = {
+         id: userExists[0].id,
+         token,
+         username: userExists[0].userName,
+         photoUrl: userExists[0].photoUrl,
+         matricNumber: userExists[0].matricNumber,
       }
-      return Response(false, 'user does not exists')
+      return Response(true, data)
    } catch (error) {
       return Response(false, error?.message || error)
    }
 }
+
 const ForgotPassword = async (body, headers) => {
    const { password } = body
    const { userid, token } = headers
