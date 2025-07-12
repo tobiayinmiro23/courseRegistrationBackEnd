@@ -7,8 +7,7 @@ const uri = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@tobi.
 const app=express()
 
 var whitelist =['https://school-portal-zjna.onrender.com','https://tobiayinmiro23.github.io/portfolio/'];
-// app.use(cors({credentials: true, origin: whitelist }));
-app.use(cors());
+app.use(cors({credentials: true, origin: whitelist }));
 app.use(express.json())
 app.use(router)
 
