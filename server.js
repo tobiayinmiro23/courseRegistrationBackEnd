@@ -8,7 +8,7 @@ const app=express()
 
 var whitelist =['https://school-portal-ml9i.onrender.com','https://tobiayinmiro23.github.io/portfolio/'];
 // app.use(cors({credentials: true, origin: whitelist }));
-app.use(cors();
+app.use(cors());
 app.use(express.json())
 app.use(router)
 
