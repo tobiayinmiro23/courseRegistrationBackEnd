@@ -6,8 +6,7 @@ const uri = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@tobi.
 
 const app=express()
 
-// app.use(cors({credentials: true, origin: 'https://school-portal-zjna.onrender.com' }));
-app.use(cors());
+app.use(cors({credentials: true, origin: 'https://school-portal-zjna.onrender.com' }));
 app.use(express.json())
 app.use(router)
 
