@@ -31,7 +31,7 @@ const Login = async (req) => {
       if (!userExists?.length) return Response(false, 'invalid credentials')
       let verifyPassword = bcrypt.compareSync(password, userExists[0].password)
       if (!verifyPassword) return Response(false, 'invalid credentials')
-      let token = jwt.sign(userExists[0].userName, "tobi's secrete")
+      let token = jwt.sign(userExists[0].userName, process.env.SECRETEKEY)
       let data = {
          id: userExists[0].id,
          token,
