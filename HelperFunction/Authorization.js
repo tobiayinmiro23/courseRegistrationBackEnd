@@ -11,7 +11,7 @@ const verifyToken= async(id,token)=>{
             }
                 return 'cannot acces this route user does not exist'
         }catch(err){
-            console.lpg(err)
+            console.log(err)
             if(err.name === 'JsonWebTokenError') return err.message
              console.log(err)
             if(err.name === 'CastError') return 'you are not authorized to access this route'
