@@ -77,7 +77,7 @@ The back end for the school portal repo built with express and mongoDB.
 
 ## 📝 Environment Variables
 
-- `DATABASE_URL`: mongoDB database name
+- `DATABASE`: mongoDB database name
 - `USERNAME`: mongoDB username
 - `PASSWORD`: mongoDB password
 - `SECRETEKEY`: secrete key to verify jwt
@@ -85,7 +85,7 @@ The back end for the school portal repo built with express and mongoDB.
 
   ## 🔒 Authentication
 
-Sensitive API routes are protected by JWT authentication. Include the JWT token in the token header:
+Sensitive API routes are protected by JWT authentication, Included in the request header:
 
 ```
 token: <your-token>
