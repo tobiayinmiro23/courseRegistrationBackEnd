@@ -18,7 +18,7 @@ The back end for the school portal repo built with express and mongoDB.
 ## 📋 Prerequisites
 
 - Node.js >= 18 
-- PostgreSQL database
+- MongoDB database
 - npm or yarn
 
 ## 🛠️ Installation
