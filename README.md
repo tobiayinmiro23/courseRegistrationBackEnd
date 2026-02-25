@@ -39,7 +39,10 @@ The back end for the school portal repo built with express and mongoDB.
 4. **Environment Setup**
    Create a `.env` file in the root directory:
    ```env
-   DATABASE_URL="postgresql://username:password@localhost:5432/databasename"
+   DATABASE_URL=""
+   USERNAME=""
+   PASSWORD=""
+   
    ```
 
 5. **Start the development server**
@@ -73,7 +76,9 @@ The back end for the school portal repo built with express and mongoDB.
 
 ## 📝 Environment Variables
 
-- `DATABASE_URL`: PostgreSQL database connection string
+- `DATABASE_URL`: mongoDB database name
+- `USERNAME`: mongoDB username
+- `PASSWORD`: mongoDB password
 
 ## 📦 Dependencies
 
