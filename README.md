@@ -11,8 +11,8 @@ The back end for the school portal repo built with express and mongoDB.
 - view course functionality 
 - delete course functionality
 - hashing of sensitive information
-- Secure info storage in a mongoDB database
-- reset password
+- Secure information storage in a mongoDB database
+- reset password functionality
 
 
 ## 📋 Prerequisites
