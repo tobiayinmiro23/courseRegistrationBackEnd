@@ -1,7 +1,7 @@
 
 # courseRegistrationBackEnd
 
-The back end for the school portal repo built with express and mongoDB.
+The back end for the school portal repo built with express and mongoDB. 
 
 ## 🚀 Features
 
