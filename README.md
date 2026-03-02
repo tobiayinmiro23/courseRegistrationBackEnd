@@ -77,10 +77,13 @@ The back end for the school portal repo built with express and mongoDB.
 
 ## 📝 Environment Variables
 
-- `DATABASE`: \<your-mongoDB-database-name\>
-- `USERNAME`: <your-mongoDB-username>
-- `PASSWORD`:  <your-mongoDB-password>
-- `SECRETEKEY`: <your-secrete-jwt-key>
+```env
+   DATABASE_URL = <your-mongoDB-database-name>
+   USERNAME = <your-mongoDB-username>
+   PASSWORD = <your-mongoDB-password>
+   SECRETEKEY = <your-secrete-jwt-key>
+   
+   ```
 
 
   ## 🔒 Authentication
