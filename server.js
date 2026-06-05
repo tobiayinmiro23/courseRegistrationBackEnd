@@ -7,7 +7,7 @@ const uri = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@tobi.
 const app=express()
 const allowedOrigins = [
   "https://school-portal-zjna.onrender.com",
-  "https://tobiayinmiro23.github.io",
+  "https://dev-tobi.netlify.app",
 ];
 
 app.use(
